@@ -126,6 +126,24 @@ if ($SkillName) {
 Write-Host ""
 Write-Host "找到 $($targets.Count) 个 Skill，开始部署..." -ForegroundColor White
 
+# 重新生成 skills.json
+Write-Host ""
+Write-Host "🔄 更新 skills.json..." -ForegroundColor Cyan
+python3 "$PSScriptRoot/scripts/generate_manifest.py"
+if ($LASTEXITCODE -eq 0) {
+    git -C $PSScriptRoot add skills.json
+    $changed = git -C $PSScriptRoot diff --cached --name-only
+    if ($changed) {
+        git -C $PSScriptRoot commit -m "auto: update skills.json"
+        git -C $PSScriptRoot push
+        Write-Host "  ✅ skills.json 已更新并推送" -ForegroundColor Green
+    } else {
+        Write-Host "  ✅ skills.json 无变更" -ForegroundColor DarkGray
+    }
+} else {
+    Write-Host "  ⚠️  生成 skills.json 失败，跳过" -ForegroundColor Yellow
+}
+
 foreach ($target in $targets) {
     Deploy-Skill -skillPath $target -config $config
 }

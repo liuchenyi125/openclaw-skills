@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My OpenClaw Skills</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --tag-bg: #21262d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }
+
+    header { border-bottom: 1px solid var(--border); padding: 32px 24px; max-width: 900px; margin: 0 auto; }
+    header h1 { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
+    header p { color: var(--muted); font-size: 13px; }
+    header a { color: var(--accent); text-decoration: none; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 24px; }
+
+    .batch-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 28px; }
+    .batch-section h2 { font-size: 14px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .batch-badge { background: var(--accent); color: #000; border-radius: 999px; font-size: 11px; padding: 1px 8px; font-weight: 700; }
+    .url-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; font-family: monospace; font-size: 12px; color: var(--muted); max-height: 130px; overflow-y: auto; white-space: pre; line-height: 1.9; }
+    .btn-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; border: 1px solid var(--border); background: var(--tag-bg); color: var(--text); cursor: pointer; transition: all .15s; }
+    .btn:hover { background: var(--border); }
+    .btn.primary { background: var(--accent); color: #000; border-color: var(--accent); }
+    .btn.primary:hover { opacity: .85; }
+    .btn.ok { background: var(--green) !important; color: #000 !important; border-color: var(--green) !important; }
+
+    .skills-grid { display: grid; gap: 14px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; transition: border-color .15s; }
+    .card:hover { border-color: var(--accent); }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .card-name { font-weight: 600; font-size: 15px; }
+    .card-version { font-size: 11px; color: var(--muted); background: var(--tag-bg); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; flex-shrink: 0; }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .card-url { font-family: monospace; font-size: 11px; color: #484f58; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 560px; }
+    .badge-safe { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: rgba(63,185,80,.12); color: var(--green); border: 1px solid rgba(63,185,80,.25); flex-shrink: 0; }
+
+    .meta { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    .loading { text-align: center; color: var(--muted); padding: 64px 0; font-size: 14px; }
+    .error { text-align: center; color: #f85149; padding: 48px 0; }
+
+    footer { text-align: center; padding: 28px 24px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 48px; line-height: 2; }
+    footer a { color: var(--accent); text-decoration: none; }
+    code { background: var(--tag-bg); padding: 1px 6px; border-radius: 4px; font-size: 11px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🔧 My OpenClaw Skills</h1>
+  <p>安全审查 &amp; 加固后的 MCP Skills 合集 ·
+    <a href="https://github.com/liuchenyi125/openclaw-skills">GitHub</a>
+  </p>
+</header>
+
+<div class="container">
+
+  <!-- 批量安装区 -->
+  <div class="batch-section" id="batchSection" style="display:none">
+    <h2>🚀 批量安装 <span class="batch-badge" id="skillCount">0</span> 个 Skills</h2>
+    <div class="url-box" id="urlBox">加载中…</div>
+    <div class="btn-row">
+      <button class="btn primary" id="btnCopyAll" onclick="copyAll()">📋 一键复制全部链接</button>
+      <button class="btn" onclick="openAll()">🔗 逐个在新标签打开</button>
+    </div>
+  </div>
+
+  <!-- Skill 列表 -->
+  <div id="skillList"><div class="loading">⏳ 加载中…</div></div>
+
+</div>
+
+<footer>
+  由 <a href="https://github.com/liuchenyi125">liuchenyi125</a> 维护 ·
+  基于开源项目安全加固<br>
+  新增 Skill：在 <code>skills/</code> 下添加文件夹 + SKILL.md，<code>git push</code> 后自动更新此页面
+</footer>
+
+<script>
+  const MANIFEST = 'https://raw.githubusercontent.com/liuchenyi125/openclaw-skills/main/skills.json';
+  let allSkills = [];
+
+  async function load() {
+    try {
+      const res = await fetch(MANIFEST + '?_=' + Date.now());
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      allSkills = data.skills || [];
+      render(allSkills, data.updated);
+    } catch (e) {
+      document.getElementById('skillList').innerHTML =
+        `<div class="error">❌ 加载失败，请刷新重试<br><small style="color:#666;margin-top:8px;display:block">${e.message}</small></div>`;
+    }
+  }
+
+  function render(skills, updated) {
+    // 批量区
+    document.getElementById('batchSection').style.display = 'block';
+    document.getElementById('skillCount').textContent = skills.length;
+    document.getElementById('urlBox').textContent = skills.map(s => s.url).join('\n');
+
+    // 列表
+    const meta = `<div class="meta">${skills.length} 个 Skill · 更新于 ${updated || '—'}</div>`;
+    const cards = skills.map(s => `
+      <div class="card">
+        <div class="card-top">
+          <span class="card-name">${esc(s.name)}</span>
+          <span class="card-version">v${esc(s.version)}</span>
+        </div>
+        <div class="card-desc">${esc(s.description)}</div>
+        <div class="card-bottom">
+          <span class="card-url">${esc(s.url)}</span>
+          <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+            <span class="badge-safe">✅ 安全加固</span>
+            <button class="btn" data-url="${esc(s.url)}" onclick="copyUrl(this)">复制链接</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    document.getElementById('skillList').innerHTML = meta + '<div class="skills-grid">' + cards + '</div>';
+  }
+
+  function esc(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function copyAll() {
+    const urls = allSkills.map(s => s.url).join('\n');
+    navigator.clipboard.writeText(urls).then(() => flash(document.getElementById('btnCopyAll'), '✅ 已复制！'));
+  }
+
+  function copyUrl(btn) {
+    navigator.clipboard.writeText(btn.dataset.url).then(() => flash(btn, '✅ 已复制'));
+  }
+
+  function flash(btn, msg) {
+    const orig = btn.textContent;
+    btn.textContent = msg;
+    btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('ok'); }, 2000);
+  }
+
+  function openAll() {
+    allSkills.forEach(s => window.open(s.url, '_blank'));
+  }
+
+  load();
+</script>
+</body>
+</html>

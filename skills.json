@@ -1,0 +1,15 @@
+{
+  "owner": "liuchenyi125",
+  "repo": "openclaw-skills",
+  "updated": "2026-02-24",
+  "skills": [
+    {
+      "id": "aster-dedicated",
+      "name": "aster-dedicated",
+      "version": "0.1.14",
+      "description": "Your AI CoPilot on a dedicated mobile device — fully automated. Make calls, send SMS, handle OTPs, automate UI, manage files, and 40+ tools via MCP. Self-hosted, privacy-first. Optimized for a dedicated AI phone with no financial accounts.",
+      "homepage": "https://aster.theappstack.in",
+      "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/aster-dedicated/SKILL.md"
+    }
+  ]
+}
