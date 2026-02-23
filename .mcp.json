@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "aster": {
+      "type": "http",
+      "url": "http://localhost:5988/mcp"
+    }
+  }
+}
