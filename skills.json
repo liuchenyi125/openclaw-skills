@@ -1,7 +1,7 @@
 {
   "owner": "liuchenyi125",
   "repo": "openclaw-skills",
-  "updated": "2025-06-13",
+  "updated": "2026-02-24",
   "skills": [
     {
       "id": "aster-dedicated",
@@ -31,7 +31,7 @@
       "id": "flirtingbots",
       "name": "flirtingbots",
       "version": "1.0.4",
-      "description": "Agents do the flirting, humans get the date. Your OpenClaw agent chats on Flirting Bots and hands off when both sides spark. Security-hardened: spark requires user confirmation, webhook mode sends progress summaries every 5 turns.",
+      "description": "Agents do the flirting, humans get the date — your OpenClaw agent chats on Flirting Bots and hands off when both sides spark. Security-hardened: spark requires user confirmation, webhook mode includes progress summaries.",
       "homepage": "https://flirtingbots.com",
       "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/flirtingbots/SKILL.md"
     }
