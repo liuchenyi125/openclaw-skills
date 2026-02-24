@@ -18,6 +18,14 @@
       "description": "Run Codex CLI, Claude Code, OpenCode, or Pi Coding Agent via background process for programmatic control. Security-hardened: --yolo mode removed, --full-auto used by default.",
       "homepage": "https://github.com/steipete/coding-agent",
       "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/coding-agent/SKILL.md"
+    },
+    {
+      "id": "cognitive-memory",
+      "name": "cognitive-memory",
+      "version": "1.0.8",
+      "description": "Intelligent multi-store memory system with human-like encoding, consolidation, decay, and recall. Security-hardened: prompt injection scan before writes, token reward system changed to passive logging only.",
+      "homepage": "https://github.com/icemilo414/cognitive-memory",
+      "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/cognitive-memory/SKILL.md"
     }
   ]
 }
