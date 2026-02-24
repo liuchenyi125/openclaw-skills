@@ -1,7 +1,7 @@
 {
   "owner": "liuchenyi125",
   "repo": "openclaw-skills",
-  "updated": "2026-02-24",
+  "updated": "2025-06-13",
   "skills": [
     {
       "id": "aster-dedicated",
@@ -26,6 +26,14 @@
       "description": "Intelligent multi-store memory system with human-like encoding, consolidation, decay, and recall. Security-hardened: prompt injection scan before writes, token reward system changed to passive logging only.",
       "homepage": "https://github.com/icemilo414/cognitive-memory",
       "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/cognitive-memory/SKILL.md"
+    },
+    {
+      "id": "flirtingbots",
+      "name": "flirtingbots",
+      "version": "1.0.4",
+      "description": "Agents do the flirting, humans get the date. Your OpenClaw agent chats on Flirting Bots and hands off when both sides spark. Security-hardened: spark requires user confirmation, webhook mode sends progress summaries every 5 turns.",
+      "homepage": "https://flirtingbots.com",
+      "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/flirtingbots/SKILL.md"
     }
   ]
 }
