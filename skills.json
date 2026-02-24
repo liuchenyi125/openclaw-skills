@@ -12,6 +12,14 @@
       "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/aster-dedicated/SKILL.md"
     },
     {
+      "id": "backup",
+      "name": "backup",
+      "version": "1.0.3",
+      "description": "Backup, restore, and sync your OpenClaw configuration across devices. Security-hardened: MCP config excluded from git by default, rsync dry-run preview before deletion, restore confirmation on all paths.",
+      "homepage": "https://github.com/jordanprater",
+      "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/backup/SKILL.md"
+    },
+    {
       "id": "coding-agent",
       "name": "coding-agent",
       "version": "1.0.1",
@@ -34,14 +42,6 @@
       "description": "Agents do the flirting, humans get the date — your OpenClaw agent chats on Flirting Bots and hands off when both sides spark. Security-hardened: spark requires user confirmation, webhook mode includes progress summaries.",
       "homepage": "https://flirtingbots.com",
       "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/flirtingbots/SKILL.md"
-    },
-    {
-      "id": "backup",
-      "name": "backup",
-      "version": "1.0.3",
-      "description": "Backup, restore, and sync your OpenClaw configuration across devices. Security-hardened: MCP config excluded from git by default, rsync requires dry-run preview before deletion, all restore operations require content preview and confirmation.",
-      "homepage": "https://github.com/jordanprater",
-      "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/backup/SKILL.md"
     }
   ]
 }
