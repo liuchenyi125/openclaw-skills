@@ -10,6 +10,14 @@
       "description": "Your AI CoPilot on a dedicated mobile device — fully automated. Make calls, send SMS, handle OTPs, automate UI, manage files, and 40+ tools via MCP. Self-hosted, privacy-first. Optimized for a dedicated AI phone with no financial accounts.",
       "homepage": "https://aster.theappstack.in",
       "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/aster-dedicated/SKILL.md"
+    },
+    {
+      "id": "coding-agent",
+      "name": "coding-agent",
+      "version": "1.0.1",
+      "description": "Run Codex CLI, Claude Code, OpenCode, or Pi Coding Agent via background process for programmatic control. Security-hardened: --yolo mode removed, --full-auto used by default.",
+      "homepage": "https://github.com/steipete/coding-agent",
+      "url": "https://github.com/liuchenyi125/openclaw-skills/blob/main/skills/coding-agent/SKILL.md"
     }
   ]
 }
